@@ -1,0 +1,48 @@
+extends widerlayout
+
+block login
+ if(error)
+  h1 {errormsg}
+  
+ 
+
+  div.panel.panel.default
+   div.panel-heading  
+     div.panel-title Add Song
+   div.panel-body(ng-app='app')
+    form(novalidate name="form" ng-controller='songc')
+     
+       div.form-group
+         label.col-sm-2(for="songname") Name
+         div.col-sm-10
+          input#songname.form-control(type='text' placeholder='songname' ng-model="song.songname")
+       div.form-group
+         label.col-sm-2(for="movie-name") #{entry_movie_name }
+         div.col-sm-10
+          input#movie-name.form-control(type='text' name="moviename" placeholder='moviename' required ng-model='song.moviename')
+          div.text-danger 
+          
+       div.form-group
+         label.col-sm-2(for="movie-year") #{entry_movie_year}
+         div.col-sm-10
+          input#movie-year.form-control(type='text' name="movieyear" placeholdedr='movieyear' required="" ng-model='song.movieyear')
+      
+          span(ng-show="form.movieyear.$error.required") Enter movie year
+        
+       div.form-group
+         label.col-sm-2(for="song-translation") Song Translation
+         div.col-sm-10
+          textarea#song-translation.form-control(rows='5' cols='50' name="translation" required="" ng-model='song.translation' placeholder='translation')
+         
+           
+    
+       div.form-group
+       
+        div.col-sm-10
+         input.btn.btn-primary(type='submit' name="submit" placeholder='submit' ng-click='save()' value='Submit')
+       
+    script(srgc='/javascript/geetadd.js')
+     
+       
+  
+       

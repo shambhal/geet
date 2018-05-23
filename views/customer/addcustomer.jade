@@ -1,0 +1,55 @@
+form.form-horizontal(no-validate  name="usergform")
+        style           #upload-input{display:none;}
+        div.alert.alert-danger(ng-if="errflag")
+               div(ng-repeat="error in errors") {{error.msg}}
+        div.alert.alert-success(ng-if="sflag") {{success}}
+        div.form-group
+          label.col-sm-2(for="usergname")  Name
+          div.col-sm-10
+           input#ugname.form-control(type='text' placeholder='Username' name='ugname'  required ng-model="userg.name")
+           br
+           div(ng-show="usergform.ugname.$touched || usergform.$submitted") 
+             span(ng-show="usergform.ugname.$invalid") #{error_name}
+        
+        
+
+        div.form-group
+          label.col-sm-2(for="useremail")  Email
+          div.col-sm-10
+           input#useremail.form-control(type='email' placeholder='email' name='email' required ng-model="userg.email")
+           br
+           div(ng-show="usergform.email.$touched || usergform.$submitted") 
+             span(ng-show="usergform.email.$invalid") #{error_email}     
+        div.form-group
+          label.col-sm-2(for="password")  Status
+          div.col-sm-10
+           input.form-control(type='checkbox' ng-checked="userg.status=='1'" value='1'  ng-model="userg.status")
+        
+        div.form-group
+          label.col-sm-2(for="userpic") Pic
+          div.col-sm-10
+           div
+                img#uthumb(src="{{thumb}}")
+                a(ng-click="clear") Clear
+            
+                input#upload-input.form-control(type='file' name="uploads" multiple="multiple")
+           input#upic(type='hidden' name="pic" ng-model='userg.pic')
+            
+           input#btn-upload.btn.btn-primary.upload-btn(value='Upload')
+        div.form-group
+          label.col-sm-2(for="ugroup")  Usergroup
+          div.col-sm-10
+           select#usergname.form-control(ng-model="userg.userg_id"  ng-optionfs=" item as ug.name for  ug in ugs  track by ug._id" ng-changes="save2()" required="true"  name="usergroup" )
+              option(ng-repeat="ug in ugs" value="{{ug._id}}")
+                {{ug.name}}
+           br
+           div(ng-show=" usergform.$submitted") 
+             span(ng-show="usergform.usergroup.$invalid") #{error_usergroup}
+            
+        div.form-group
+       
+          div.col-sm-10
+           input.btn.btn-primary(type='submit' name="submit" placeholder='submit' ng-click='save()' value='Submit')
+           |  
+           input.btn.btn-primary(type='button' name="submit" placeholder='submit' ng-click='cancel()' value='Cancel')
+    script( src='/javascript/common/upload.js')    

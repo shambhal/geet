@@ -1,0 +1,10 @@
+ 
+
+
+
+
+ .draggable { min-width: 100px; height1: 100px; padding: 0.5em; float1: left; margin: 10px 10px 10px 0; }
+  .droppable { min-widtdh: 100px; height1: 150px; padding: 0.5em; float: left; margin: 10px; z-index:5 }
+    .sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+	.judge {min-height:150px; min-width:80px;}
+  .sortable  li { margin: 10px 3px 13px 3px; padding: 0.4em; padding-left: 1.5em;  border:1px solid #000; z-index:10 }

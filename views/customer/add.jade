@@ -1,0 +1,29 @@
+extends widerlayout
+block login
+ 
+ 
+
+  div.panel.panel.default
+   div.panel-heading  
+    div.panel-title Add Song
+    div.panel-body
+     
+      form.form-horizontal(no-validate ng-controller="addController" name="usergform" enctype='multipart/form-data')
+        style           #upload-input{display:none;}
+         
+        div.form-group
+          label.col-sm-2(for="usergname") Group Name
+          div.col-sm-10
+           input#upload-input.form-control(type='file' name="uploads[]" multiple="multiple")
+           input(type='hidden' name='userg.file')
+           br
+           input#btn-upload.btn.btn-primary.upload-btn(value='Upload')
+        
+      
+       
+        div.form-group
+       
+          div.col-sm-10
+           input.btn.btn-primary(type='submit' name="submit" placeholder='submit' ng-click='save()' value='Submit')
+   script( src='/javascript/common/upload.js')
+   

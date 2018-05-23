@@ -1,0 +1,41 @@
+extends widerlayout
+
+block login
+ 
+ 
+
+  div.panel.panel.default
+   div.panel-heading  
+    div.panel-title Add Song
+     div.panel-body(ng-app="app" ng-controller='songl') 
+      
+       //////////////////////////////////
+       
+       div.table-responsive
+        table.table-bordered.table.table-over
+         tr
+          td
+           input(type='checkbox')
+          td #{column_id} {{docs}}
+          td #{column_mukhda}
+          td #{column_year}
+          td #{column_action} 
+        
+         tr(ng-repeat="record in arr")  
+          td
+           input(type='checkbox' name="records[]" )
+          td {{record.mukhda}} 
+          td {{record.movieyear}} 
+         
+   
+   
+       //////////////////////////////////////
+       
+       
+     
+       
+         
+       script.
+      
+    
+       script(src='/javascript/geetlist.js')
