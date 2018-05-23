@@ -123,6 +123,7 @@ app.use(session({secret:'moherangdola',resave:false,saveUninitialized:false,
 }));
 app.use(paginate.middleware(10, 50));
 app.use(app.router);
+/*
 app.use(allowCrossDomain);
 var whitelist = ['http://localhost:8100', 'http://example2.com','http://localhost:8100/'];
 var corsOptionsDelegate = function (req, callback) {
@@ -148,7 +149,7 @@ var corsOptionsDelegate = function (req, callback) {
   }
   callback(null, corsOptions) // callback expects two parameters: error and options
 }
-
+*/
 
 //app.all('/geet/*',acl.middleware);
 //app.all('/hints/*',acl.middleware);
@@ -220,6 +221,7 @@ app.get("/demo/",geet.dummy);
 //app.get("/judges/",geet.judges);
 //app.post("/customer/login",customer.login);
 //9824941798
+/*
 app.options("/customer/login",cors(corsOptionsDelegate), function (req, res, next) {
 	//console.log(req.accountInfo);
  // res.json({msg: 'This is CORS-enabled for a whitelisted domain.'})
@@ -243,7 +245,7 @@ return worker.signup();
  //res.json(next());
 return worker.retrieve();
 });
-   
+   */
  /*  
    
    function countch(string)
@@ -273,7 +275,7 @@ return worker.retrieve();
 //var str="कांग्रेस";
 var str="कीर्ति";
 var str="कौस्तुभ";
-console.log(countch(str));*/
+console.log(countch(str));
 function allowCrossDomain(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 
@@ -287,7 +289,7 @@ function allowCrossDomain(req, res, next) {
   } else {
     next();
   }
-}
+}*/
 app.post("/customer/login",customer.login);
 app.get('/customer/getq',customer.getq);
 app.get("/customer/test",customer.test);
